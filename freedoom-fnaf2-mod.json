@@ -1,0 +1,85 @@
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "id": 28773,
+            "game_id": 7153,
+            "game_slug": "freedoom",
+            "name": "Freedoom",
+            "year": 2003,
+            "user": "sparky121",
+            "runner": "zdoom",
+            "slug": "freedoom-fnaf2-mod",
+            "version": "Fnaf2 mod",
+            "description": "Fnaf2 doom is a mod made on GZDoom, AKA using the Doom1 engine modified. This is a simple Linux port changing simple things like switching .bat file to sh and adding Linux version of the Doom engine. The mod is made originally by Skornedemon in Gamejolt.",
+            "notes": "Flashlight not working. More details in [github](https://github.com/Bugaboo2000)",
+            "created_at": "2021-07-29T17:35:11.871202Z",
+            "updated_at": "2021-07-29T17:35:11.871228Z",
+            "draft": true,
+            "published": false,
+            "published_by": null,
+            "rating": "",
+            "steamid": null,
+            "gogid": null,
+            "gogslug": "",
+            "humbleid": "",
+            "humblestoreid": "",
+            "humblestoreid_real": "",
+            "script": {
+                "files": [
+                    {
+                        "fnaf2": "https://github.com/Bugaboo2000/Fnaf2-doom-linux/releases/download/1.0/fnaf2doom.modfiles.zip"
+                        "freedoom": "https://github.com/freedoom/freedoom/releases/download/v0.12.1/freedoom-0.12.1.zip"
+                    }
+                ],
+                "game": {
+                    "args": "+set cl_maxdecals 2147483647 +set movebob 0.05 ",
+                    "files": [
+                        "FiveNightsAtFreddys2R.pk3",
+                        "FiveNightsAtFreddys2R.wad"
+                    ],
+                    "main_file": "freedoom1.wad"
+                },
+                "installer": [
+                    {
+                        "extract": {
+                            "dst": "$GAMEDIR",
+                            "src": "fnaf2"
+                        }
+                        
+                        "extract": {
+                            "dst": "$GAMEDIR",
+                            "src": "fredoom"
+                        }
+                        
+                    },
+                    
+                        
+                        
+                    
+                    {
+                        "write_config": {
+                            "file": "$HOME/.config/gzdoom/gzdoom.ini",
+                            "key": "freelook",
+                            "section": "GlobalSettings",
+                            "value": true
+                        }
+                    },
+                    {
+                        "write_file": {
+                            "content": "W=+forward E=+use R=+reload A=+moveleft S=+back D=+moveright Mouse1=+attack Mouse2=+altattack Space=+jump Ctrl=+crouch",
+                            "file": "$HOME/.config/gzdoom/gzdoom.ini",
+                            "section": "Doom.Bindings"
+                        }
+                    }
+                ],
+                "zdoom": {
+                    "config": "$HOME/.config/gzdoom/gzdoom.ini"
+                }
+            },
+            "content": "files:\n- fnaf2: https://github.com/Bugaboo2000/Fnaf2-doom-linux/releases/download/1.0/fnaf2doom.modfiles.zip\ngame:\n  args: '+set cl_maxdecals 2147483647 +set movebob 0.05 '\n  files:\n  - FiveNightsAtFreddys2R.pk3\n  - FiveNightsAtFreddys2R.wad\n  main_file: freedoom1.wad\ninstaller:\n- extract:\n    dst: $CACHE\n    src: fnaf2\n- merge:\n    dst: $GAMEDIR\n    src: $CACHE\n- write_config:\n    file: $HOME/.config/gzdoom/gzdoom.ini\n    key: freelook\n    section: GlobalSettings\n    value: true\n- write_file:\n    content: W=+forward E=+use R=+reload A=+moveleft S=+back D=+moveright Mouse1=+attack\n      Mouse2=+altattack Space=+jump Ctrl=+crouch\n    file: $HOME/.config/gzdoom/gzdoom.ini\n    section: Doom.Bindings\nzdoom:\n  config: $HOME/.config/gzdoom/gzdoom.ini\n"
+        }
+    ]
+}
